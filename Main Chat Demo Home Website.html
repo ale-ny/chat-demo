@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat Demo Website</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: #333;
+    }
+
+    /* Semi-transparent overlay */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 3rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #006c68;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Chat Demo Website</h1>
+    <p>This is a test page for the NICE CXone chat widget.</p>
+    <p>The chat should open automatically and be ready for interaction.</p>
+    <footer>Do not enter sensitive personal information during chat tests.</footer>
+  </div>
+
+  <!-- NICE CXone Chat Script -->
+  <script>
+    (function (n,u) {
+      window.CXoneDfo=n;
+      window[n]=window[n]||function(){
+        (window[n].q=window[n].q||[]).push(arguments)
+      };
+      window[n].u=u;
+      let e=document.createElement("script");
+      e.type="module";
+      e.src=u+"?"+Math.round(Date.now()/1e3/3600);
+      document.head.appendChild(e);
+    })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
+
+    cxone('init', '5417');
+    cxone('guide', 'init', 'ac03cfdc-0864-4318-bbb5-b9c134c6b9ae');
+//    cxone('guide','openEntrypoint','390b003f-07ff-45c9-ac91-18c47e8e6e5f');
+//    cxone('guide','setFullDisplay');
+    cxone('chat','setStatusMessage', 'Hello! Before we start our chat, please be sure that you do not share any personal information about a customer. If we need a SSN or credit card or bank account number, we will call you.');
+  </script>
+
+</body>
+</html>
