@@ -26,6 +26,13 @@
       color: #333;
     }
 
+    /* Follow the visible mobile viewport as browser controls expand/collapse. */
+    @media (max-width: 600px) {
+      body {
+        height: 100dvh;
+      }
+    }
+
     /* Semi-transparent overlay */
     body::before {
       content: '';
@@ -95,6 +102,12 @@ window[n].u=u;
 
     cxone('init', '7173');
     cxone('guide', 'init',);
+
+    // Configure full-screen Guide only for mobile-sized viewports on page load.
+    // https://help.nicecxone.com/content/acd/digital/guide/customizeguidewidgetwithapis.htm
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      cxone('guide', 'setFullDisplay');
+    }
 
   </script>
 </body>
