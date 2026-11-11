@@ -107,10 +107,9 @@ window[n].u=u;
 
     // Configure full-screen Guide only for mobile-sized viewports on page load.
     // https://help.nicecxone.com/content/acd/digital/guide/customizeguidewidgetwithapis.htm
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      cxone('guide', 'setFullDisplay');
-    }
-
+if (window.matchMedia('(max-width: 600px)').matches) {
+  cxone('guide', 'setDesiredGuideHeight', '30em');
+}
   </script>
 </body>
 </html>
