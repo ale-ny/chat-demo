@@ -102,6 +102,16 @@ window[n].u=u;
     cxone('init', '5009');
     cxone('guide', 'init', '98eae3cd-25b9-425b-9b68-737cee53842b');
     cxone('chat','setCaseCustomField','chat_entry', 'MXC'); 
+    
+cxone('chat', 'onPushUpdate', 'CaseInboxAssigneeChanged', (payload) => {
+  console.log('CXone assignment event:', payload);
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'cxone_chat_assigned'
+  });
+});
+
   </script>
 </body>
 </html>
